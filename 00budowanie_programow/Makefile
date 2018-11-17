@@ -2,5 +2,5 @@ CFLAGS= -Wall -std=c11
 LDLIBS= -lm
 
 clean :
-	rm -f zadanie{6,7,8,9}
-	
+	rm -f zad6 zad7 zad8 zad9
+
