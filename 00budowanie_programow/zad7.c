@@ -35,10 +35,10 @@ void numberInput (double* number){
 
 void numberReverseResult (double number){
   double revereResult = 1/number;
-  printf("Odwrotnością liczby %lf jest liczba: %lf \n", number, revereResult);
+  printf("Odwrotnością liczby %.2lf jest liczba: %lf \n", number, revereResult);
 }
 
 void numberSqrtResult (double number){
   double sqrtResult = sqrt(number);
-  printf("Pierwiastkiem liczby %lf jest liczba: %lf \n", number, sqrtResult);
+  printf("Pierwiastkiem liczby %.2lf jest liczba: %lf \n", number, sqrtResult);
 }

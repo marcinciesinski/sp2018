@@ -28,5 +28,5 @@ void numberInput(double* a){
 
 void numberSqrtResult(double a){
   double sqrtResult = sqrt(a);
-  printf("Wynikiem pierwiastkowania kwadratowego liczby %lf jest: %lf\n", a, sqrtResult);
+  printf("Wynikiem pierwiastkowania kwadratowego liczby %.2lf jest: %lf\n", a, sqrtResult);
 }
