@@ -15,7 +15,7 @@ int main()
     result = pow(number, power);
     if (result > 2010)
       break;
-    printf("2^%d = %d \n", power, result);
+    printf("2^%d = %4d \n", power, result);
     power++;
   }
 }
