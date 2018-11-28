@@ -18,13 +18,6 @@ int main()
   chestPrinter();
 }
 
-void chestPrinter();
-
-int main()
-{
-  chestPrinter();
-}
-
 void chestPrinter()
 {
   int col = 8;
