@@ -5,13 +5,20 @@
 
 #include <stdio.h>
 
+void countAndPrint();
+
 int main()
+{
+  printf("Program wczytuje 6 liczb z konsoli do tablicy i wypisuje najmniejszą i największą wartość\n");
+  printf("Wprowadz 6 liczb oddzielonych spacją,\nlub zatwierdzając każdą z nich enterem\n");
+  countAndPrint();
+}
+
+void countAndPrint()
 {
   double numbers[6];
   double max;
   double min;
-  printf("Program wczytuje 6 liczb z konsoli do tablicy i wypisuje najmniejszą i największą wartość\n");
-  printf("Wprowadz 6 liczb oddzielonych spacją,\nlub zatwierdzając każdą z nich enterem\n");
   for (int i = 0; i < 6; i++)
   {
     scanf("%lf", &numbers[i]);

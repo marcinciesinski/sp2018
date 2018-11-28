@@ -10,7 +10,15 @@
 //  * * * * * * * *
 #include <stdio.h>
 
+void chestPrinter();
+
 int main()
+{
+  printf("Program drukuje szachownicę:");
+  chestPrinter();
+}
+
+void chestPrinter()
 {
   int col = 8;
   int row = 8;

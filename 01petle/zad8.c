@@ -19,6 +19,7 @@ void fourthSign();
 
 int main()
 {
+  printf("Program rysuje poniższe znaczki:\n");
   firstSign();
   secondSign();
   thirdSign();

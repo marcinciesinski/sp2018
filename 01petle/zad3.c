@@ -23,10 +23,15 @@ void numberInput(int *a, int *b)
 
 void numberOutput(int a, int b)
 {
-  printf("Liczby pomiędzy %d oraz %d to: ", a, b);
-  for (int i = a + 1; i < b; i++)
+  if (a == b)
+    printf("nie ma liczb całkowitych pomiędzy %d i %d\n", a, b);
+  else
   {
-    printf("%d ", i);
+    printf("Liczby pomiędzy %d oraz %d to: ", a, b);
+    for (int i = a + 1; i < b; i++)
+    {
+      printf("%d ", i);
+    }
+    printf("\n");
   }
-  printf("\n");
 }
