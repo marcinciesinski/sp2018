@@ -10,7 +10,6 @@
 //  * * * * * * * *
 #include <stdio.h>
 
-<<<<<<< HEAD
 void chestPrinter();
 
 int main()
@@ -19,17 +18,14 @@ int main()
   chestPrinter();
 }
 
-void chestPrinter()
-=======
-void chestPrint();
+void chestPrinter();
 
 int main()
 {
-  chestPrint();
+  chestPrinter();
 }
 
-void chestPrint()
->>>>>>> 2c89fddea958bed23cd9a376b245a5915be79b44
+void chestPrinter()
 {
   int col = 8;
   int row = 8;
