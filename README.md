@@ -7,3 +7,5 @@
 
 ## Przydatne linki:
 * [Command Line](https://www.learnenough.com/command-line-tutorial#sec-summary_cleaning).
+
+
