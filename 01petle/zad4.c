@@ -6,15 +6,17 @@
 #include <stdio.h>
 
 void numberInput(int *number);
-void numberSum(int number);
+int numberSum(int number);
+void printResult(int number, int result);
+void printWarning();
 
 int main()
 {
-  int number;
+  static int number;
   printf("Program wylicza sumę liczb naturalnych od 1\ndo podanej przez uzytkownika liczby..\n");
   printf("Wprowadz liczbę na ktorej sumowanie ma się zakonczyc:\n");
   numberInput(&number);
-  numberSum(number);
+  printResult(number, numberSum(number));
 }
 
 void numberInput(int *number)
@@ -22,19 +24,27 @@ void numberInput(int *number)
   scanf("%d", number);
 }
 
-void numberSum(int number)
+int numberSum(int number)
 {
+  int result;
   if (number < 1)
-    printf("Proszę podać liczbę naturalną większą od 1 aby sumowanie przebiegło prawidłowo\n");
-  else
+    printWarning();
+  int a = 1;
+  result = 0;
+  while (a <= number)
   {
-    int a = 1;
-    int result = 0;
-    while (a <= number)
-    {
-      result += a;
-      a++;
-    }
-    printf("Suma liczb od 1 do %d wynosi: %d\n", number, result);
+    result += a;
+    a++;
   }
+  return result;
+}
+
+void printWarning()
+{
+  printf("Proszę podać liczbę naturalną większą od 1 aby sumowanie przebiegło prawidłowo\n");
+}
+
+void printResult(int number, int result)
+{
+  printf("Suma liczb od 1 do %d wynosi: %d\n", number, result);
 }
