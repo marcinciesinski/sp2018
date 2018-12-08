@@ -25,6 +25,8 @@ void numberOutput(int a, int b)
 {
   if (a == b)
     printf("nie ma liczb całkowitych pomiędzy %d i %d\n", a, b);
+  else if (a>b)
+    printf("liczba a powinna być mniejsza od b \n");
   else
   {
     printf("Liczby pomiędzy %d oraz %d to: ", a, b);
