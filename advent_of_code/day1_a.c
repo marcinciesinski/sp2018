@@ -18,61 +18,31 @@
 
 #include <stdio.h>
 
-int frequency(int *tab_lenght);
-void print_freq_solution(int freq_sum);
+int frequences();
+void printSolution(int answ);
 
 int main()
 {
-  int freq, tab_lenght;
-  freq=frequency(&tab_lenght);
-  print_freq_solution(freq);
-  printf("%d\n", tab_lenght);
+  int freq; // solution
+
+  freq = frequences();
   
+  printSolution(freq);
 }
 
-int frequency(int *tab_lenght){
-  FILE *puzzle_input;
-  puzzle_input = fopen("freq.txt", "r");
-  
-  *tab_lenght=0;
-  int n, freq_sum=0;
+int frequences(){
+  int n, freq = 0;
 
-  while(fscanf(puzzle_input, "%d", &n) != EOF){
-    (*tab_lenght)++;
-    freq_sum += n;
-
+  while(fscanf(stdin, "%d" , &n) != EOF )
+  {
+    freq += n;
+    fprintf(stdout, "%d\n", n);
   }
-  return freq_sum;
+  return freq;
 }
 
-void print_freq_solution(int freq_sum){
-  fprintf(stderr, "%d\n", freq_sum);
+void printSolution(int answ){
+  fprintf(stderr, "%d\n", answ);
 }
 
-// typedef struct {
-//   int *array;
-//   size_t used;
-//   size_t size;
-// } Array;
 
-// void initArray(Array *a, size_t initialSize) {
-//   a->array = (int *)malloc(initialSize * sizeof(int));
-//   a->used = 0;
-//   a->size = initialSize;
-// }
-
-// void insertArray(Array *a, int element) {
-//   // a->used is the number of used entries, because a->array[a->used++] updates a->used only *after* the array has been accessed.
-//   // Therefore a->used can go up to a->size 
-//   if (a->used == a->size) {
-//     a->size *= 2;
-//     a->array = (int *)realloc(a->array, a->size * sizeof(int));
-//   }
-//   a->array[a->used++] = element;
-// }
-
-// void freeArray(Array *a) {
-//   free(a->array);
-//   a->array = NULL;
-//   a->used = a->size = 0;
-// }
