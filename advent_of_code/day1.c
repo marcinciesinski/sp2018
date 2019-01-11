@@ -46,6 +46,7 @@ int frequency(int *tab_lenght)
 		freq_sum += n;
 	}
 	return freq_sum;
+	fclose(puzzle_input);
 }
 
 void print_freq_solution(int freq_sum)
@@ -82,5 +83,6 @@ void search_for_duplicate()
 			}
 			i++;
 		}
+		fclose(puzzle_input);
 	}
 }
