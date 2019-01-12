@@ -56,8 +56,8 @@ middle of processing the list.
 
 # KOD:
 
-    include <stdio.h>
-    include <stdlib.h>
+    #include <stdio.h>
+    #include <stdlib.h>
 
     int frequency(int *tab_lenght);
     void print_freq_solution(int freq_sum);
@@ -73,7 +73,7 @@ middle of processing the list.
       search_for_duplicate();
     }
 
-### deklaracja zmiennych w funkcji main
+### funkcja licząca sumę liczb zczytanych z pliku:
 
     int frequency(int *tab_lenght)
     {
@@ -92,10 +92,14 @@ middle of processing the list.
       fclose(puzzle_input);
     }
 
+### funkcja wypisująca wynik:
+
     void print_freq_solution(int freq_sum)
     {
       fprintf(stderr, "rozwiązaniem pierwszej części zadania jest : %d\n", freq_sum);
     }
+
+### funkcja szukająca duplikatu liczby. Skanuje i zapisuje wyniki w tablicy tak długo aż znajdzie duplikat.
 
     void search_for_duplicate()
     {
