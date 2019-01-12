@@ -1,12 +1,12 @@
-## DAY 1
+# DAY 1
 
 aby skompilować programy należy w konsoli wpisać: 
-#  make day1.c
+##  make day1.c
 
   Alternatywny sposob pobierania danych z pliku ->
-#  ./day1 < day1.txt > frequences.txt
+##  ./day1 < day1.txt > frequences.txt
   Sortowanie rezultatow w konsoli ->
-#  sort frequences.txt | uniq -D
+##  sort frequences.txt | uniq -D
 
 # Treść zadania 1:
 
@@ -53,4 +53,80 @@ Note that your device might need to repeat its list of
 frequency changes many times before a duplicate frequency
 is found, and that duplicates might be found while in the
 middle of processing the list.
+
+# KOD:
+
+include <stdio.h>
+include <stdlib.h>
+
+int frequency(int *tab_lenght);
+void print_freq_solution(int freq_sum);
+void search_for_duplicate();
+
+### deklaracja zmiennych w funkcji main
+
+int main()
+{ 
+  int freq, tab_lenght;
+  freq = frequency(&tab_lenght);
+  print_freq_solution(freq);
+  search_for_duplicate();
+}
+
+### deklaracja zmiennych w funkcji main
+
+int frequency(int *tab_lenght)
+{
+  FILE *puzzle_input;
+  puzzle_input = fopen("freq.txt", "r");
+
+  *tab_lenght = 0;
+  int n, freq_sum = 0;
+
+  while (fscanf(puzzle_input, "%d", &n) != EOF)
+  {
+    (*tab_lenght)++;
+    freq_sum += n;
+  }
+  return freq_sum;
+  fclose(puzzle_input);
+}
+
+void print_freq_solution(int freq_sum)
+{
+  fprintf(stderr, "rozwiązaniem pierwszej części zadania jest : %d\n", freq_sum);
+}
+
+void search_for_duplicate()
+{
+  int all_freq_in_tab[200000];
+  all_freq_in_tab[0] = 0;
+  int n, freq_sum = 0, i = 1;
+  int first_duplicate = 0;
+
+  while (first_duplicate == 0)
+  {
+    FILE *puzzle_input;
+    puzzle_input = fopen("freq.txt", "r");
+
+    while (fscanf(puzzle_input, "%d", &n) != EOF)
+    {
+      freq_sum += n;
+      all_freq_in_tab[i] = freq_sum;
+
+      for (int a = 0; a < i; a++)
+      {
+        if (all_freq_in_tab[a] == freq_sum)
+        {
+          first_duplicate = freq_sum;
+          printf("Element na pozycji %d powtórzył się z elementem na pozycji %d w tablicy przechowywującej wyniki sumowania.\n", a, i);
+          printf("Pierwsza powtórzona liczba i rozwiązanie drugiej części zadania to: %d \n", freq_sum);
+          exit(0);
+        }
+      }
+      i++;
+    }
+    fclose(puzzle_input);
+  }
+}
 
