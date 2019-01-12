@@ -1,12 +1,9 @@
 ## DAY 1
 
-make day1.c
+aby skompilować programy należy w konsoli wpisać: make day1.c
 
-./day1 < day1.txt > frequences.txt
-
-543
-
-sort frequences.txt | uniq -D
-
-# Bash, która z liczb występuje pierwsza w pliku 
-# frequences...
+{ 
+  #Alternatywny sposob pobierania danych z pliku -> ./day1 < day1.txt > frequences.txt
+  |
+  #Sortowanie rezultatow w konsoli -> sort frequences.txt | uniq -D
+}
