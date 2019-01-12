@@ -56,6 +56,10 @@ void print_freq_solution(int freq_sum)
 
 void search_for_duplicate()
 {
+	// zainicjować zmienną int i za każdym przejsciem pętli 
+	// powiększać tablicę o jej oryginalną wartość..
+	// jeśli liczba będzie znaleziona to zakończ.
+
 	int all_freq_in_tab[200000];
 	all_freq_in_tab[0] = 0;
 	int n, freq_sum = 0, i = 1;
