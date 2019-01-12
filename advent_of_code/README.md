@@ -61,6 +61,7 @@ middle of processing the list.
 
 # KOD:
 
+```c
     #include <stdio.h>
     #include <stdlib.h>
 
@@ -130,6 +131,7 @@ middle of processing the list.
         fclose(puzzle_input);
       }
     }
+```
 
 ### deklaracja zmiennych w funkcji main
 
