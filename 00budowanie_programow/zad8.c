@@ -19,7 +19,7 @@ void minMaxNumber(double number1, double number2, double number3);
 int main()
 {
   double number1, number2, number3;
-  printf("Program wypisuje różne matematyczne obliczenia na trzech liczbach \n");
+  printf("Program wypisuje sumę, iloczyn, oraz najmniejszą i największą z trzech liczb \n");
   numbersInput(&number1, &number2, &number3);
   add(number1, number2, number3);
   multipli(number1, number2, number3);

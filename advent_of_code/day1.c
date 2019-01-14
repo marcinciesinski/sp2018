@@ -16,47 +16,48 @@
 //     Current frequency -1, change of +3; resulting frequency  2.
 //     Current frequency  2, change of +1; resulting frequency  3.
 
-
 #include <stdio.h>
 #include <stdlib.h>
 
-int frequency(int *tab_lenght);
+#define ARRAY_LENGTH (133000)
+
+int frequency_drift();
 void print_freq_solution(int freq_sum);
+void print_warning();
+void print_answer_for_duplicate(int a, int i, int freq_sum);
 void search_for_duplicate();
 
 int main()
 {
-  int freq, tab_lenght;
-  freq = frequency(&tab_lenght);
-  print_freq_solution(freq);
+  // część pierwsza zadania
+
+  int frequency_sum;
+  frequency_sum = frequency_drift();
+  print_freq_solution(frequency_sum);
+
+  // część druga zadania
+
   search_for_duplicate();
 }
 
-int frequency(int *tab_lenght)
+int frequency_drift()
 {
   FILE *puzzle_input;
   puzzle_input = fopen("freq.txt", "r");
 
-  *tab_lenght = 0;
   int n, freq_sum = 0;
 
   while (fscanf(puzzle_input, "%d", &n) != EOF)
   {
-    (*tab_lenght)++;
     freq_sum += n;
   }
-  return freq_sum;
   fclose(puzzle_input);
-}
-
-void print_freq_solution(int freq_sum)
-{
-  fprintf(stderr, "rozwiązaniem pierwszej części zadania jest : %d\n", freq_sum);
+  return freq_sum;
 }
 
 void search_for_duplicate()
 {
-  int all_freq_in_tab[200000];
+  int all_freq_in_tab[ARRAY_LENGTH];
   all_freq_in_tab[0] = 0;
   int n, freq_sum = 0, i = 1;
   int first_duplicate = 0;
@@ -68,6 +69,9 @@ void search_for_duplicate()
 
     while (fscanf(puzzle_input, "%d", &n) != EOF)
     {
+      if (i > ARRAY_LENGTH)
+        print_warning();
+
       freq_sum += n;
       all_freq_in_tab[i] = freq_sum;
 
@@ -76,13 +80,29 @@ void search_for_duplicate()
         if (all_freq_in_tab[a] == freq_sum)
         {
           first_duplicate = freq_sum;
-          printf("Element na pozycji %d powtórzył się z elementem na pozycji %d w tablicy przechowywującej wyniki sumowania.\n", a, i);
-          printf("Pierwsza powtórzona liczba i rozwiązanie drugiej części zadania to: %d \n", freq_sum);
-          exit(0);
+          print_answer_for_duplicate(a, i, freq_sum);
         }
       }
       i++;
     }
     fclose(puzzle_input);
   }
+}
+
+void print_freq_solution(int freq_sum)
+{
+  fprintf(stderr, "rozwiązaniem pierwszej części zadania jest : %d\n", freq_sum);
+}
+
+void print_warning()
+{
+  printf("Przekroczono zakres tablicy w trakcie obliczeń...\nProszę ją powiększyć\n");
+  exit(1);
+}
+
+void print_answer_for_duplicate(int a, int i, int freq_sum)
+{
+  printf("Element na pozycji %d powtórzył się z elementem na pozycji %d w tablicy przechowywującej wyniki sumowania.\n", a, i);
+  printf("Pierwsza powtórzona liczba i rozwiązanie drugiej części zadania to: %d \n", freq_sum);
+  exit(0);
 }
