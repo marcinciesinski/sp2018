@@ -8,4 +8,6 @@
 ## Przydatne linki:
 * [Command Line](https://www.learnenough.com/command-line-tutorial#sec-summary_cleaning).
 
+* [Bash](http://wbzyl.inf.ug.edu.pl/sp/).
+
 
