@@ -35,7 +35,7 @@ int main()
   frequency_sum = frequency_drift();
   print_freq_solution(frequency_sum);
 
-  // część druga zadania
+  // część druga zadania
 
   search_for_duplicate();
 }
