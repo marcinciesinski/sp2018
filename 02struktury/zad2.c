@@ -25,5 +25,6 @@ int main()
 
 int disjointrect(struct rect r1, struct rect r2)
 {
-  return r1.upp_right.x <= r2.low_left.x || r1.upp_right.y <= r2.low_left.y || r1.low_left.x >= r2.upp_right.x || r1.low_left.y >= r2.upp_right.y;
+  return r1.upp_right.x <= r2.low_left.x || r1.upp_right.y <= r2.low_left.y 
+    || r1.low_left.x >= r2.upp_right.x || r1.low_left.y >= r2.upp_right.y;
 }
